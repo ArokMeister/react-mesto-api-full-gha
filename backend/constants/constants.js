@@ -12,16 +12,6 @@ const {
 
 const patternLink = /^https?:\/\/(?:www\.)?[A-Za-z0-9-._~:/?#[\]@!$&'()*+,;=]+(?:#[A-Za-z0-9-._~:/?#[\]@!$&'()*+,;=]+)?$/m;
 
-const allowedURL = [
-  'https://praktikum.tk',
-  'http://praktikum.tk',
-  'localhost:3000',
-  'http://arokmeister.mesto.nomoredomains.monster',
-  'https://mesto.nomoreparties.co',
-];
-
-const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
-
 module.exports = {
   CREATED_201,
   BAD_REQUEST_400,
@@ -31,6 +21,4 @@ module.exports = {
   CONFLICT_409,
   SERVER_ERROR_500,
   patternLink,
-  allowedURL,
-  DEFAULT_ALLOWED_METHODS,
 };
