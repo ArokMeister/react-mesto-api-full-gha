@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const router = require('./routes');
 const { handleError } = require('./utils/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('./middlewares/useCors');
 
 const { PORT = 3000 } = process.env;
 const app = express();
@@ -20,6 +21,7 @@ app.use(cookieParser());
 
 app.use(requestLogger);
 
+app.use(cors);
 app.use(router);
 
 app.use(errorLogger);

@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/react-mesto-auth/static/css/main.fd174cff.css",
-    "main.js": "/react-mesto-auth/static/js/main.06128066.js",
-    "static/media/Inter-Medium.woff": "/react-mesto-auth/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
-    "static/media/Inter-Black.woff": "/react-mesto-auth/static/media/Inter-Black.c6938660eec019fefd68.woff",
-    "static/media/Inter-Regular.woff": "/react-mesto-auth/static/media/Inter-Regular.8c206db99195777c6769.woff",
-    "static/media/Inter-Medium.woff2": "/react-mesto-auth/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
-    "static/media/Inter-Black.woff2": "/react-mesto-auth/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
-    "static/media/Inter-Regular.woff2": "/react-mesto-auth/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
-    "static/media/header__logo.svg": "/react-mesto-auth/static/media/header__logo.bbe2a6eafac19c3d031c272c424875ca.svg",
-    "static/media/like_button_disable.svg": "/react-mesto-auth/static/media/like_button_disable.1ad06e85f169668a1f36.svg",
-    "index.html": "/react-mesto-auth/index.html",
-    "static/media/garbage_button.svg": "/react-mesto-auth/static/media/garbage_button.e3c42771bff3aaa52f76.svg",
-    "static/media/fail.svg": "/react-mesto-auth/static/media/fail.df8eddf661ff88f2d0efd3d570d14309.svg",
-    "static/media/succes.svg": "/react-mesto-auth/static/media/succes.1b6082f862eac35e2514460237d96ecc.svg",
-    "static/media/like_button_active.svg": "/react-mesto-auth/static/media/like_button_active.35948469632d0421d697.svg",
-    "static/media/pen_button.svg": "/react-mesto-auth/static/media/pen_button.6c7bf05444b9793fdf6e.svg",
-    "static/media/close_button.svg": "/react-mesto-auth/static/media/close_button.039f1f5203f653b4bacd.svg",
-    "static/media/close_button_black.svg": "/react-mesto-auth/static/media/close_button_black.88e3bcdcb534d639e6b3.svg",
-    "static/media/add_button.svg": "/react-mesto-auth/static/media/add_button.bed8c136e13907f5eefb.svg",
-    "main.fd174cff.css.map": "/react-mesto-auth/static/css/main.fd174cff.css.map",
-    "main.06128066.js.map": "/react-mesto-auth/static/js/main.06128066.js.map"
+    "main.css": "/static/css/main.b98b2851.css",
+    "main.js": "/static/js/main.ae23f501.js",
+    "static/media/Inter-Medium.woff": "/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Black.woff": "/static/media/Inter-Black.c6938660eec019fefd68.woff",
+    "static/media/Inter-Regular.woff": "/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Medium.woff2": "/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-Black.woff2": "/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
+    "static/media/Inter-Regular.woff2": "/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/header__logo.svg": "/static/media/header__logo.bbe2a6eafac19c3d031c272c424875ca.svg",
+    "static/media/like_button_disable.svg": "/static/media/like_button_disable.1ad06e85f169668a1f36.svg",
+    "static/media/garbage_button.svg": "/static/media/garbage_button.e3c42771bff3aaa52f76.svg",
+    "static/media/fail.svg": "/static/media/fail.df8eddf661ff88f2d0efd3d570d14309.svg",
+    "index.html": "/index.html",
+    "static/media/succes.svg": "/static/media/succes.1b6082f862eac35e2514460237d96ecc.svg",
+    "static/media/like_button_active.svg": "/static/media/like_button_active.35948469632d0421d697.svg",
+    "static/media/pen_button.svg": "/static/media/pen_button.6c7bf05444b9793fdf6e.svg",
+    "static/media/close_button.svg": "/static/media/close_button.039f1f5203f653b4bacd.svg",
+    "static/media/close_button_black.svg": "/static/media/close_button_black.88e3bcdcb534d639e6b3.svg",
+    "static/media/add_button.svg": "/static/media/add_button.bed8c136e13907f5eefb.svg",
+    "main.b98b2851.css.map": "/static/css/main.b98b2851.css.map",
+    "main.ae23f501.js.map": "/static/js/main.ae23f501.js.map"
   },
   "entrypoints": [
-    "static/css/main.fd174cff.css",
-    "static/js/main.06128066.js"
+    "static/css/main.b98b2851.css",
+    "static/js/main.ae23f501.js"
   ]
 }
