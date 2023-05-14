@@ -54,8 +54,8 @@ function App() {
   }
 
   const handleErrorMessage = useCallback(errorMessage => {
-    setError({ errorMessage, isOpen: !error.isOpen })
-  }, [error.isOpen])
+    setError({ errorMessage, isOpen: true })
+  }, [])
 
   function handleAcceptDelete(card) {
     setAcceptDeletePopup({ isOpen: true, card })
@@ -87,7 +87,7 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
     api.setLikes(card._id, isLiked)
       .then((newCard) => {
         setCards(cards.map((card) => card._id === newCard._id ? newCard : card));
@@ -123,8 +123,8 @@ function App() {
   function handleLogin(email, password) {
     auth.authorize(email, password)
       .then(data => {
-        if (data.token) {
-          localStorage.setItem('token', data.token)
+        if (data) {
+          localStorage.setItem('token', 'true')
           setLoggedIn(true)
           setUserEmail(email)
           navigate('/', { replace: true })
@@ -142,22 +142,29 @@ function App() {
   }
 
   function handleLogout() {
-    setLoggedIn(false)
-    setUserEmail('')
-    localStorage.removeItem('token')
-    navigate('/signin', { replace: true })
+    auth.clearToken()
+      .then(() => {
+        setLoggedIn(false)
+        setUserEmail('')
+        localStorage.removeItem('token')
+        navigate('/signin', { replace: true })
+      })
+      .catch(err => handleErrorMessage(err))
   }
 
   const handleTokenCheck = useCallback(() => {
     const token = localStorage.getItem('token')
     if (token) {
-      auth.checkToken(token)
-        .then(({ data }) => {
+      auth.checkToken()
+        .then((data) => {
           setLoggedIn(true)
           setUserEmail(data.email)
           navigate('/', { replace: true })
         })
-        .catch(err => handleErrorMessage(err.message))
+        .catch(err => {
+          handleErrorMessage(err.message);
+          setLoading(false);
+        })
     } else {
       setLoading(false)
     }
@@ -167,13 +174,13 @@ function App() {
     handleTokenCheck()
     loggedIn &&
       Promise.all([api.getUserData(), api.getCards()])
-        .then(([{ name, about, avatar, _id }, cardData]) => {
-          setCurrentUser({ name, about, avatar, _id })
+        .then(([user, cardData]) => {
+          setCurrentUser(user)
           setCards(cardData)
         })
         .catch(err => handleErrorMessage(err))
         .finally(() => setLoading(false))
-  }, [loggedIn, handleTokenCheck, handleErrorMessage]);
+  }, [loggedIn, handleErrorMessage]);
 
   if (loading) {
     return <Loader />

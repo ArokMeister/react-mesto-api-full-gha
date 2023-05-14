@@ -1,11 +1,8 @@
-import { apiConfig } from "./config";
-
 class Api {
-  constructor({ token, cohort }) {
-    this._token = token;
-    this._cohort = cohort;
-    this._baseURL = `https://mesto.nomoreparties.co/v1/${this._cohort}`;
-    this._headers = { authorization: this._token, 'Content-Type': 'application/json; charset=UTF-8' };
+  constructor() {
+    this._baseURL = 'https://api.arokmeister.mesto.nomoredomains.monster';
+    this._headers = { 'Content-Type': 'application/json; charset=UTF-8' };
+    this._credentials = 'include';
   }
 
   _verifyResponse(res) {
@@ -17,7 +14,8 @@ class Api {
 
   getUserData() {
     return fetch(`${this._baseURL}/users/me`, {
-      headers: this._headers
+      headers: this._headers,
+      credentials: this._credentials
     })
       .then(res => this._verifyResponse(res));
   }
@@ -26,6 +24,7 @@ class Api {
     return fetch(`${this._baseURL}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
+      credentials: this._credentials,
       body: JSON.stringify(data)
     })
       .then(res => this._verifyResponse(res))
@@ -33,7 +32,8 @@ class Api {
 
   getCards() {
     return fetch(`${this._baseURL}/cards`, {
-      headers: this._headers
+      headers: this._headers,
+      credentials: this._credentials
   })
     .then(res => this._verifyResponse(res));
   }
@@ -42,6 +42,7 @@ class Api {
     return fetch(`${this._baseURL}/cards`, {
       method: 'POST',
       headers: this._headers,
+      credentials: this._credentials,
       body: JSON.stringify(data)
     })
       .then(res => this._verifyResponse(res))
@@ -50,7 +51,8 @@ class Api {
   deleteCard(idCard) {
     return fetch(`${this._baseURL}/cards/${idCard}`, {
       method: 'DELETE',
-      headers: this._headers
+      headers: this._headers,
+      credentials: this._credentials,
     })
       .then(res => this._verifyResponse(res))
   }
@@ -59,6 +61,7 @@ class Api {
     return fetch(`${this._baseURL}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
+      credentials: this._credentials,
       body: JSON.stringify(avatar)
     })
       .then(res => this._verifyResponse(res)) 
@@ -67,12 +70,13 @@ class Api {
   setLikes(idCard, isLiked) {
     return fetch(`${this._baseURL}/cards/${idCard}/likes`, {
       method: isLiked ? 'DELETE' : 'PUT',
-      headers: this._headers
+      headers: this._headers,
+      credentials: this._credentials
     })
       .then(res => this._verifyResponse(res))
   }
 }
 
-const api = new Api(apiConfig)
+const api = new Api()
 
 export default api

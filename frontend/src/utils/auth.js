@@ -1,18 +1,15 @@
-export const BASE_URL = 'https://auth.nomoreparties.co';
+export const BASE_URL = 'https://api.arokmeister.mesto.nomoredomains.monster';
 
-function makeRequest(url, method, body, token) {
+function makeRequest(url, method, body) {
   const headers = {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
-  }
-
-  if (token) {
-    headers['Authorization'] = `Bearer ${token}`;
-  }
+  } 
 
   const config = {
     method,
-    headers
+    headers,
+    credentials: 'include'
   }
 
   if (body !== undefined) {
@@ -44,6 +41,10 @@ export const authorize = (email, password) => {
   return makeRequest('/signin', 'POST', { email, password })
 }
 
-export const checkToken = (token) => {
-  return makeRequest('/users/me', 'GET', undefined, token)
+export const checkToken = () => {
+  return makeRequest('/users/me', 'GET', undefined)
+}
+
+export const clearToken = () => {
+  return makeRequest('/signout', 'POST', undefined)
 }
