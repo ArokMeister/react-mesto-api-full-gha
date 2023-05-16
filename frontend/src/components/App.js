@@ -124,7 +124,7 @@ function App() {
     auth.authorize(email, password)
       .then(data => {
         if (data) {
-          localStorage.setItem('token', 'true')
+          localStorage.setItem('Authorized', 'true')
           setLoggedIn(true)
           setUserEmail(email)
           navigate('/', { replace: true })
@@ -146,14 +146,14 @@ function App() {
       .then(() => {
         setLoggedIn(false)
         setUserEmail('')
-        localStorage.removeItem('token')
+        localStorage.removeItem('Authorized')
         navigate('/signin', { replace: true })
       })
       .catch(err => handleErrorMessage(err))
   }
 
   const handleTokenCheck = useCallback(() => {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem('Authorized')
     if (token) {
       auth.checkToken()
         .then((data) => {
@@ -176,7 +176,7 @@ function App() {
       Promise.all([api.getUserData(), api.getCards()])
         .then(([user, cardData]) => {
           setCurrentUser(user)
-          setCards(cardData)
+          setCards(cardData.reverse())
         })
         .catch(err => handleErrorMessage(err))
         .finally(() => setLoading(false))
