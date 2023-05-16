@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP 158.160.65.25
+IP 158.160.28.38
 
 Frontend https://arokmeister.mesto.nomoredomains.monster
 
