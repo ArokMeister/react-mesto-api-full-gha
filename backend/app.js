@@ -8,10 +8,10 @@ const { handleError } = require('./utils/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('./middlewares/useCors');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3000, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 const app = express();
 
-mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
+mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,
 });
 
@@ -29,4 +29,6 @@ app.use(errorLogger);
 app.use(errors());
 app.use(handleError);
 
-app.listen(PORT, () => {});
+app.listen(PORT, () => {
+  console.log('The service is running! Have fun!');
+});
