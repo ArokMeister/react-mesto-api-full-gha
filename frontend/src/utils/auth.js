@@ -3,7 +3,7 @@ export const BASE_URL = 'https://api.arokmeister.mesto.nomoredomains.monster';
 function makeRequest(url, method, body) {
   const headers = {
     'Accept': 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   } 
 
   const config = {
